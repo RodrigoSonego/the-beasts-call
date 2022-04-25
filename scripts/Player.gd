@@ -20,4 +20,7 @@ func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed
 	move_velocity.x = direction.x * speed.x
 	move_velocity.y += gravity * get_physics_process_delta_time()
 	
+	if direction.y == -1.0:
+		move_velocity.y = speed.y * direction.y
+	
 	return move_velocity
