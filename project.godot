@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="the-beasts-call"
+run/main_scene="res://scenes/TestLevel.tscn"
 config/icon="res://icon.png"
 
 [input]
