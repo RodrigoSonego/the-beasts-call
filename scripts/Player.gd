@@ -2,10 +2,14 @@ extends Actor
 
 var anim_state_machine: AnimationNodeStateMachinePlayback
 
+var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só string
+
 func _ready():
 	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta):
+	current_state = anim_state_machine.get_current_node()
+	
 	var is_jump_released:= Input.is_action_just_released("jump") and velocity.y < 0
 	
 	var direction := get_input_direction()
@@ -27,7 +31,7 @@ func get_input_direction() -> Vector2:
 func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, 
 															is_jump_released: bool) -> Vector2:
 	
-	if(anim_state_machine.get_current_node() == "attack" and is_on_floor()):
+	if(current_state == "attack" and is_on_floor()):
 		return Vector2.ZERO
 	
 	var move_velocity:= linear_velocity
@@ -48,18 +52,25 @@ func handle_animation(current_velocity: Vector2) -> void:
 		anim_state_machine.travel("idle")
 		return
 	
-	if current_velocity.y < 0 && anim_state_machine.get_current_node():
+	if current_velocity.y < 0:
 		anim_state_machine.travel("jump")
 		return
 	
 	if current_velocity.x != 0:
 		anim_state_machine.travel("walk")
+		
+		if current_velocity.x > 0:
+			get_node("SpritePivot").scale.x = 1
+		if current_velocity.x < 0:
+			get_node("SpritePivot").scale.x = -1
+	
+	
 	
 func handle_attack_input():
 	if Input.is_action_just_pressed("attack") == false:
 		return
 	
-	if anim_state_machine.get_current_node() == "jump":
+	if current_state == "jump":
 		anim_state_machine.travel("jump_attack")
 		return
 	
