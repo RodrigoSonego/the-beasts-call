@@ -23,13 +23,11 @@ func get_input_direction() -> Vector2:
 	return Vector2(horizontal,
 	-1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 0.0)
 
-func handle_attack_input():
-	if Input.is_action_just_pressed("attack"):
-		anim_state_machine.travel("attack")
 
 func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, 
 															is_jump_released: bool) -> Vector2:
-	if(anim_state_machine.get_current_node() == "attack"):
+	
+	if(anim_state_machine.get_current_node() == "attack" and is_on_floor()):
 		return Vector2.ZERO
 	
 	var move_velocity:= linear_velocity
@@ -50,10 +48,19 @@ func handle_animation(current_velocity: Vector2) -> void:
 		anim_state_machine.travel("idle")
 		return
 	
-	if current_velocity.y < 0:
+	if current_velocity.y < 0 && anim_state_machine.get_current_node():
 		anim_state_machine.travel("jump")
 		return
 	
 	if current_velocity.x != 0:
 		anim_state_machine.travel("walk")
 	
+func handle_attack_input():
+	if Input.is_action_just_pressed("attack") == false:
+		return
+	
+	if anim_state_machine.get_current_node() == "jump":
+		anim_state_machine.travel("jump_attack")
+		return
+	
+	anim_state_machine.travel("attack")
