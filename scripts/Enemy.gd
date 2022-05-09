@@ -9,15 +9,16 @@ func _ready():
 	pass
 	set_physics_process(false)
 	velocity.x = -speed.x
+	$AnimatedSprite.scale.x = side * 1
 	
 	#$RaydCast2D.position.x = $CollisionShape2D.shape.get_extents().x * side
 
 func _physics_process(delta):
-	$AnimatedSprite.scale.x = side * 1
 	velocity.y += gravity * delta
 	if is_on_wall():
 		velocity.x *= -1.0
-		side = 1
+		side *= -1
+		$AnimatedSprite.scale.x = side * 1
 		#$RayCast2D.position.x = $CollisionShape2D.shape.get_extents().x * side
 	
 	velocity.y = move_and_slide(velocity, Vector2.UP).y

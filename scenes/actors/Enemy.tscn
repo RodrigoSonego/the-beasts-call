@@ -27,9 +27,8 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 54, 80.5 )
 
-[sub_resource type="CapsuleShape2D" id=11]
-radius = 52.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 38, 12.5 )
 
 [node name="enemy" type="KinematicBody2D" groups=["enemy"]]
 position = Vector2( 591, 421 )
@@ -51,8 +50,8 @@ position = Vector2( 0, 21 )
 shape = SubResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 24 )
-shape = SubResource( 11 )
+position = Vector2( 1, 83.5 )
+shape = SubResource( 13 )
 __meta__ = {
 "_edit_lock_": true
 }
