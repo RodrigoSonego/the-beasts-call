@@ -75,3 +75,15 @@ func handle_attack_input():
 		return
 	
 	anim_state_machine.travel("attack")
+
+
+func _on_AttackHitbox_area_entered(area):
+	if(area.is_in_group("enemy")):
+		var enemy = area.get_node('..')
+		
+		enemy.take_damage()
+
+
+func _on_AttackHitbox_body_entered(body):
+	#print(body.name)
+	pass

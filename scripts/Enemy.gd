@@ -22,5 +22,8 @@ func _physics_process(delta):
 	
 	velocity.y = move_and_slide(velocity, Vector2.UP).y
 
-
 #not $RayCast2D.is_colliding() and is_on_floor()
+
+func take_damage():
+	print('ai caraio')
+	self.queue_free()
