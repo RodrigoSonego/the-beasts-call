@@ -5,19 +5,20 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só string
 
 func _ready():
+	hp = max_hp
 	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta):
 	current_state = anim_state_machine.get_current_node()
 	
-	var is_jump_released:= Input.is_action_just_released("jump") and velocity.y < 0
+	var is_jump_released:= Input.is_action_just_released("jump") and _velocity.y < 0
 	
 	var direction := get_input_direction()
 	
-	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_released)
-	velocity = move_and_slide(velocity, FLOOR_NORMAL)
+	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_released)
+	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 	
-	handle_animation(velocity)
+	handle_animation(_velocity)
 	handle_attack_input()
 
 
@@ -84,6 +85,5 @@ func _on_AttackHitbox_area_entered(area):
 		enemy.take_damage()
 
 
-func _on_AttackHitbox_body_entered(body):
-	#print(body.name)
-	pass
+func _on_Hurtbox_area_entered(area):
+	pass # Replace with function body.

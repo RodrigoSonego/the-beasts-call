@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://sprites/Adventurer Sprite Sheet v1.1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
@@ -6,8 +6,11 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 11, 18.75 )
 
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 15, 29 )
+
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19, 28.25 )
+extents = Vector2( 15, 4.125 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -218,11 +221,11 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 13
 vframes = 16
-frame = 12
 
 [node name="AttackHitbox" type="Area2D" parent="SpritePivot/Sprite"]
 position = Vector2( 10, 5.33333 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 0
 __meta__ = {
 "_edit_group_": true
 }
@@ -231,7 +234,14 @@ __meta__ = {
 shape = SubResource( 2 )
 disabled = true
 
-[node name="PlayerCollider" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
+modulate = Color( 0.545098, 0, 0.956863, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource( 33 )
+
+[node name="PlayerFeet" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 24.125 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
