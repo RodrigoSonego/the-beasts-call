@@ -38,7 +38,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.4 ),
+"times": PoolRealArray( 0.1, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -140,7 +140,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=35]
 resource_name = "take_damage"
-length = 0.6
+length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("SpritePivot/Sprite:frame_coords")
 tracks/0/interp = 1
@@ -148,7 +148,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 0.5 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 0, 6 ), Vector2( 1, 6 ), Vector2( 2, 6 ), Vector2( 3, 6 ) ]
@@ -172,7 +172,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id=9]
-animation = "RESET"
+animation = "attack"
 
 [sub_resource type="AnimationNodeAnimation" id=36]
 animation = "die"
@@ -261,7 +261,7 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=23]
 states/attack/node = SubResource( 9 )
-states/attack/position = Vector2( 338, 250 )
+states/attack/position = Vector2( 337, 250 )
 states/die/node = SubResource( 36 )
 states/die/position = Vector2( 296.253, 523.511 )
 states/idle/node = SubResource( 10 )
@@ -277,7 +277,7 @@ states/walk/position = Vector2( 641.253, 86 )
 transitions = [ "idle", "attack", SubResource( 13 ), "attack", "idle", SubResource( 14 ), "idle", "walk", SubResource( 15 ), "walk", "idle", SubResource( 16 ), "jump", "walk", SubResource( 17 ), "jump", "idle", SubResource( 18 ), "idle", "jump", SubResource( 19 ), "walk", "jump", SubResource( 20 ), "walk", "attack", SubResource( 21 ), "attack", "walk", SubResource( 22 ), "attack", "jump", SubResource( 26 ), "jump_attack", "jump", SubResource( 29 ), "jump", "jump_attack", SubResource( 30 ), "jump_attack", "idle", SubResource( 31 ), "jump_attack", "walk", SubResource( 32 ), "idle", "take_damage", SubResource( 38 ), "take_damage", "idle", SubResource( 39 ), "attack", "take_damage", SubResource( 49 ), "take_damage", "attack", SubResource( 50 ), "walk", "take_damage", SubResource( 51 ), "take_damage", "walk", SubResource( 52 ), "jump", "take_damage", SubResource( 53 ), "take_damage", "jump", SubResource( 54 ), "jump_attack", "take_damage", SubResource( 55 ), "take_damage", "jump_attack", SubResource( 56 ), "idle", "die", SubResource( 57 ) ]
 start_node = "idle"
 end_node = "die"
-graph_offset = Vector2( -601.845, 333.632 )
+graph_offset = Vector2( -601.845, 389.74 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=24]
 
@@ -292,7 +292,7 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 13
 vframes = 16
-frame = 94
+frame = 1
 
 [node name="AttackHitbox" type="Area2D" parent="SpritePivot/Sprite"]
 position = Vector2( 9.33333, 5.66667 )

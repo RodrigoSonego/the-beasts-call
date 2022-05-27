@@ -4,13 +4,14 @@ var anim_state_machine: AnimationNodeStateMachinePlayback
 
 var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só string
 
+export var attack_knockback := 600.0
+
 func _ready():
 	hp = max_hp
 	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta):
 	current_state = anim_state_machine.get_current_node()
-	print(current_state)
 	
 	var is_jump_released:= Input.is_action_just_released("jump") and _velocity.y < 0
 	
@@ -33,7 +34,7 @@ func get_input_direction() -> Vector2:
 func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, 
 															is_jump_released: bool) -> Vector2:
 	
-	if (current_state == "attack" and is_on_floor()) or current_state == "die" :
+	if (current_state == "attack" and is_on_floor()) or current_state == "die":
 		return Vector2.ZERO
 	
 	var move_velocity:= linear_velocity
@@ -68,11 +69,9 @@ func handle_animation(current_velocity: Vector2) -> void:
 			get_node("SpritePivot").scale.x = 1
 		if current_velocity.x < 0:
 			get_node("SpritePivot").scale.x = -1
-	
-	
-	
+
 func handle_attack_input():
-	if current_state == "die":
+	if current_state == "die" or current_state == "take_damage":
 		return
 	
 	if Input.is_action_just_pressed("attack") == false:
@@ -90,10 +89,13 @@ func _on_AttackHitbox_area_entered(area):
 		var enemy = area.get_node('..')
 		
 		enemy.take_damage()
+		enemy.take_knockback(attack_knockback * get_node("SpritePivot").scale.x)
+		
 
 
 func _on_Hurtbox_area_entered(area):
 	take_damage()
+	
 
 func take_damage():
 	hp -= 1

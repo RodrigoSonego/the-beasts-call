@@ -68,3 +68,10 @@ position = Vector2( 42, 49 )
 enabled = true
 cast_to = Vector2( 0, 60 )
 collide_with_areas = true
+
+[node name="KnockbackTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_KnockbackTimer_timeout"]

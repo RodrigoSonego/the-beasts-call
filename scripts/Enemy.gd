@@ -20,15 +20,27 @@ func _physics_process(delta):
 		$AnimatedSprite.scale.x = side * 1
 		#$RayCast2D.position.x = $CollisionShape2D.shape.get_extents().x * side
 	
-	_velocity.y = move_and_slide(_velocity, Vector2.UP).y
+	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 
 #not $RayCast2D.is_colliding() and is_on_floor()
 
 func take_damage():
 	hp -= 1
 	
+	$Hurtbox/CollisionShape2D.disabled = true
 	if( hp <= 0 ):
 		die()
 
+func take_knockback(knockback_force: float):
+	_velocity.x = knockback_force
+	$KnockbackTimer.start()
+
 func die():
 	queue_free()
+
+func reset_velocity():
+	_velocity.x = speed.x * side
+
+func _on_KnockbackTimer_timeout():
+	reset_velocity()
+	$Hurtbox/CollisionShape2D.disabled = false
