@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=2]
 
-[ext_resource path="res://sprites/Adventurer Sprite Sheet v1.1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/player/Adventurer Sprite Sheet v1.1.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -300,10 +300,10 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 13
 vframes = 16
-frame = 12
+frame = 6
 
 [node name="AttackHitbox" type="Area2D" parent="SpritePivot/Sprite"]
-position = Vector2( 9.33333, 5.66667 )
+position = Vector2( 9.33333, 5.33334 )
 scale = Vector2( 0.5, 0.5 )
 collision_mask = 2
 __meta__ = {

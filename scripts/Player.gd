@@ -1,13 +1,14 @@
 extends Actor
+class_name Player
 
 var anim_state_machine: AnimationNodeStateMachinePlayback
 
 var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só string
 
-export var attack_knockback := 600.0
+export var attack_knockback := 500.0
 
 func _ready():
-	hp = max_hp
+	hp = 1
 	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta):
@@ -83,6 +84,31 @@ func handle_attack_input():
 	
 	anim_state_machine.travel("attack")
 
+func take_damage():
+	hp -= 1
+	print(hp)
+	if hp <= 0:
+		die()
+		return
+
+	anim_state_machine.travel("take_damage")
+
+func die():
+	anim_state_machine.travel("die")
+	$Hurtbox/CollisionShape2D.disabled = true
+	
+func heal(amount: int):
+	if hp == max_hp:
+		return
+	
+	print("healou")
+	if hp + amount > max_hp:
+		hp = max_hp
+		return
+
+	hp += amount
+	
+	print(hp)
 
 func _on_AttackHitbox_area_entered(area):
 	if(area.is_in_group("enemy")):
@@ -97,16 +123,3 @@ func _on_Hurtbox_area_entered(area):
 	take_damage()
 	
 
-func take_damage():
-	hp -= 1
-	print(hp)
-	if hp <= 0:
-		die()
-		return
-
-	anim_state_machine.travel("take_damage")
-
-func die():
-	anim_state_machine.travel("die")
-	$Hurtbox/CollisionShape2D.disabled = true
-	#$AnimationTree.active = false
