@@ -8,7 +8,6 @@ var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só str
 export var attack_knockback := 500.0
 
 func _ready():
-	hp = 1
 	anim_state_machine = $AnimationTree.get("parameters/playback")
 
 func _physics_process(_delta):
@@ -116,10 +115,6 @@ func _on_AttackHitbox_area_entered(area):
 		
 		enemy.take_damage()
 		enemy.take_knockback(attack_knockback * get_node("SpritePivot").scale.x)
-		
-
 
 func _on_Hurtbox_area_entered(area):
 	take_damage()
-	
-

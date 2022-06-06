@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TWW_Red_Potion_Artwork.png-2d032a3b4e90e68f69ceff699a34afa4.stex"
+path="res://.import/potion.png-aa71364a08e0835c94f626d0b6a184af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/items/TWW_Red_Potion_Artwork.png"
-dest_files=[ "res://.import/TWW_Red_Potion_Artwork.png-2d032a3b4e90e68f69ceff699a34afa4.stex" ]
+source_file="res://sprites/items/potion.png"
+dest_files=[ "res://.import/potion.png-aa71364a08e0835c94f626d0b6a184af.stex" ]
 
 [params]
 
