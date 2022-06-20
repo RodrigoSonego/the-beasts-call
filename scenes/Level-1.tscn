@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://sprites/tilesets/DemoLevel.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/actors/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Items/Potion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=5]
+[ext_resource path="res://sprites/items/key.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 406.999, 416.25 )
+
+[node name="DemoLevel" type="Node2D"]
+script = ExtResource( 5 )
+level_index = -1
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 199, 338 )
+hp = 3
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 500, 500 )
+collision_layer = 8
+format = 1
+tile_data = PoolIntArray( 65547, 8, 0, 196607, 8, 0, 131083, 8, 0, 262143, 8, 0, 196615, 6, 0, 196617, 2, 0, 196619, 8, 0, 327679, 8, 0, 262150, 1, 0, 262155, 8, 0, 393215, 8, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 8, 0, 327686, 8, 0, 327687, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 8, 0, 327691, 8, 0 )
+
+[node name="enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 923, 445 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Potion" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1029, 244 )
+
+[node name="Key" type="Sprite" parent="."]
+position = Vector2( 1040, 441 )
+scale = Vector2( 0.108108, 0.108108 )
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="Key"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key/Area2D"]
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Key/Area2D" to="." method="_onChangeLevel"]

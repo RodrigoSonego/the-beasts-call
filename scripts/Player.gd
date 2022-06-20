@@ -7,10 +7,15 @@ var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só str
 
 export var attack_knockback := 500.0
 
+var keys_held := 0
+
 func _ready():
 	anim_state_machine = $AnimationTree.get("parameters/playback")
+	
 
 func _physics_process(_delta):
+	$HpLabel.text = "HP: " + str(hp)
+	
 	current_state = anim_state_machine.get_current_node()
 	
 	var is_jump_released:= Input.is_action_just_released("jump") and _velocity.y < 0
@@ -94,7 +99,8 @@ func take_damage():
 
 func die():
 	anim_state_machine.travel("die")
-	$Hurtbox/CollisionShape2D.disabled = true
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+	$PlayerFeet.set_deferred("disabled", true)
 	
 func heal(amount: int):
 	if hp == max_hp:
@@ -109,6 +115,9 @@ func heal(amount: int):
 	
 	print(hp)
 
+func grab_key():
+	keys_held += 1
+
 func _on_AttackHitbox_area_entered(area):
 	if(area.is_in_group("enemy")):
 		var enemy = area.get_node('..')
@@ -118,3 +127,7 @@ func _on_AttackHitbox_area_entered(area):
 
 func _on_Hurtbox_area_entered(area):
 	take_damage()
+
+
+func _on_Area2D_area_entered(area):
+	pass # Replace with function body.

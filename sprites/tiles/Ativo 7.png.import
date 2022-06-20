@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tileset.png-ea01ff149dac1b9c6b0d2d1c84c9f0ea.stex"
+path="res://.import/Ativo 7.png-100d088be890037e2856f0846694133c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tileset.png"
-dest_files=[ "res://.import/tileset.png-ea01ff149dac1b9c6b0d2d1c84c9f0ea.stex" ]
+source_file="res://sprites/tiles/Ativo 7.png"
+dest_files=[ "res://.import/Ativo 7.png-100d088be890037e2856f0846694133c.stex" ]
 
 [params]
 
