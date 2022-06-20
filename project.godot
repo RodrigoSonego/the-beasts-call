@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="the-beasts-call"
-run/main_scene="res://scenes/Level0.tscn"
+run/main_scene="res://scenes/levels/Level0.tscn"
 config/icon="res://icon.png"
 
 [global]
