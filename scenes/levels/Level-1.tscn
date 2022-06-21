@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sprites/tilesets/DemoLevel.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Items/Potion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=5]
 [ext_resource path="res://scenes/Items/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Items/Key.tscn" type="PackedScene" id=7]
 
 [node name="DemoLevel" type="Node2D"]
 script = ExtResource( 5 )
@@ -33,5 +34,9 @@ position = Vector2( 1029, 244 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1054, 454 )
+is_locked = true
+
+[node name="Key" parent="." instance=ExtResource( 7 )]
+position = Vector2( 943, 238 )
 
 [connection signal="on_door_interaction" from="Door" to="." method="_on_change_level"]

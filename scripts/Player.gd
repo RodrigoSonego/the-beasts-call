@@ -7,7 +7,7 @@ var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só str
 
 export var attack_knockback := 500.0
 
-var keys_held := 0
+var has_key := false
 
 func _ready():
 	anim_state_machine = $AnimationTree.get("parameters/playback")
@@ -116,7 +116,14 @@ func heal(amount: int):
 	print(hp)
 
 func grab_key():
-	keys_held += 1
+	print('pegaste la chavita')
+	has_key = true
+
+func consume_key():
+	has_key = false
+
+func get_has_key():
+	return has_key
 
 func _on_AttackHitbox_area_entered(area):
 	if(area.is_in_group("enemy")):
@@ -128,6 +135,3 @@ func _on_AttackHitbox_area_entered(area):
 func _on_Hurtbox_area_entered(area):
 	take_damage()
 
-
-func _on_Area2D_area_entered(area):
-	pass # Replace with function body.
