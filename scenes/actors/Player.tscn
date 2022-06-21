@@ -300,11 +300,12 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 hframes = 13
 vframes = 16
-frame = 12
+frame = 8
 
 [node name="AttackHitbox" type="Area2D" parent="SpritePivot/Sprite"]
 position = Vector2( 9.33333, 5.33334 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 0
 collision_mask = 2
 __meta__ = {
 "_edit_group_": true
