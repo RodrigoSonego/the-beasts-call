@@ -1,4 +1,5 @@
 extends Node
+class_name Level
 
 signal level_changed(level_index)
 

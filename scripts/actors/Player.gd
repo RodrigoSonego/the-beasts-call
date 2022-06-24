@@ -2,12 +2,17 @@ extends Actor
 class_name Player
 
 var anim_state_machine: AnimationNodeStateMachinePlayback
-
 var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só string
 
 export var attack_knockback := 500.0
 
 var has_key := false
+
+signal on_damage_taken()
+signal on_heal()
+signal on_collect_key()
+signal on_collect_gear()
+signal on_die()
 
 func _ready():
 	anim_state_machine = $AnimationTree.get("parameters/playback")
@@ -90,7 +95,7 @@ func handle_attack_input():
 
 func take_damage():
 	hp -= 1
-	print(hp)
+	emit_signal("on_damage_taken")
 	if hp <= 0:
 		die()
 		return
@@ -106,7 +111,7 @@ func heal(amount: int):
 	if hp == max_hp:
 		return
 	
-	print("healou")
+	emit_signal("on_heal")
 	if hp + amount > max_hp:
 		hp = max_hp
 		return
@@ -116,7 +121,6 @@ func heal(amount: int):
 	print(hp)
 
 func grab_key():
-	print('pegaste la chavita')
 	has_key = true
 
 func consume_key():

@@ -1,4 +1,4 @@
-extends "res://scripts/Item.gd"
+extends "res://scripts/items/Item.gd"
 
 export var heal_amount := 1
 

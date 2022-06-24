@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/game_management/GameManager.gd" type="Script" id=1]
+[ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/Level-1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=4]
+
+[node name="GameManager" type="Node"]
+script = ExtResource( 1 )
+levelsFolderPath = "res://scenes/levels/"
+
+[node name="GameUI" parent="." instance=ExtResource( 4 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 109, 354 )
+hp = 3
+
+[node name="DemoLevel" parent="." instance=ExtResource( 3 )]
