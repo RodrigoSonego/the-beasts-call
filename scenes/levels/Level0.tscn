@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/game_management/Level.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tilesets/DemoLevel.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/Items/Potion.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=4]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,9 +16,8 @@ collision_layer = 8
 format = 1
 tile_data = PoolIntArray( 131075, 3, 0, 262149, 6, 0, 262151, 4, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 147, 305 )
-hp = 2
-
 [node name="Potion" parent="." instance=ExtResource( 3 )]
 position = Vector2( 583, 501 )
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 159, 563 )

@@ -34,4 +34,7 @@ is_locked = true
 [node name="Key" parent="." instance=ExtResource( 7 )]
 position = Vector2( 943, 238 )
 
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 63, 430 )
+
 [connection signal="on_door_interaction" from="Door" to="." method="_on_change_level"]
