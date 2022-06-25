@@ -1,13 +1,65 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/game_management/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/Level-1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ui/GameUI.tscn" type="PackedScene" id=4]
 
+[sub_resource type="Animation" id=1]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
 [node name="GameManager" type="Node"]
 script = ExtResource( 1 )
 levelsFolderPath = "res://scenes/levels/"
+
+[node name="FadeOverlayLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="FadeOverlayLayer"]
+anchor_left = 0.501
+anchor_top = 0.5
+anchor_right = 0.501
+anchor_bottom = 0.5
+margin_left = -515.024
+margin_top = -301.0
+margin_right = 515.976
+margin_bottom = 299.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeOverlayLayer"]
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
 
 [node name="GameUI" parent="." instance=ExtResource( 4 )]
 
@@ -16,3 +68,5 @@ position = Vector2( 109, 354 )
 hp = 3
 
 [node name="DemoLevel" parent="." instance=ExtResource( 3 )]
+
+[connection signal="animation_finished" from="FadeOverlayLayer/AnimationPlayer" to="." method="_on_Fade_animation_finished"]

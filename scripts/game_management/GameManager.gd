@@ -3,8 +3,12 @@ class_name GameManager
 
 export (String) var levelsFolderPath
 
+var next_level: Level
+
 onready var current_level := $DemoLevel
 onready var player := $Player
+onready var fadeAnimation := $FadeOverlayLayer/AnimationPlayer
+
 var game_ui: GameUIController
 
 func _ready():
@@ -19,17 +23,26 @@ func _ready():
 func handle_level_changed(current_level_index: int):
 	var next_level_index := current_level_index + 1;
 	
-	var next_level = load(levelsFolderPath + "Level" + str(next_level_index) + ".tscn").instance()
-	
-	current_level.queue_free()
-	current_level = next_level
-	current_level.connect("level_changed", self, "handle_level_changed")
+	next_level = load(levelsFolderPath + "Level" + str(next_level_index) + ".tscn").instance()
+	next_level.z_index = -10
 	add_child(next_level)
 	
-	player.position = current_level.spawn_point.position;
+	fadeAnimation.play("fade_in")
+	
+	current_level.connect("level_changed", self, "handle_level_changed")
 
 func _on_player_heal():
 	game_ui.on_player_heal()
 
 func _on_player_damage():
 	game_ui.on_player_damage()
+
+
+func _on_Fade_animation_finished(anim_name):
+	if anim_name == "fade_in":
+		current_level.queue_free()
+		current_level = next_level
+		current_level.z_index = 1
+		next_level = null
+		player.position = current_level.spawn_point.position;
+		fadeAnimation.play("fade_out")

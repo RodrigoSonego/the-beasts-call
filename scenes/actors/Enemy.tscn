@@ -32,12 +32,16 @@ extents = Vector2( 38, 12.5 )
 
 [node name="enemy" type="KinematicBody2D" groups=["enemy"]]
 position = Vector2( 591, 421 )
+collision_layer = 2
 script = ExtResource( 4 )
+hp = 3
+speed = Vector2( 250, 1000 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, -32 )
 frames = SubResource( 10 )
 animation = "andando"
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -58,9 +62,9 @@ __meta__ = {
 }
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 207, 28 )
-scale = Vector2( 2, 2.1 )
-rect = Rect2( -80, -10, -45, 30 )
+position = Vector2( 813.262, -37 )
+scale = Vector2( 13.9504, 11.614 )
+rect = Rect2( -80, -10, 45, 30 )
 process_parent = true
 physics_process_parent = true
 
