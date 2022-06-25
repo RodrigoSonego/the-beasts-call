@@ -41,7 +41,6 @@ speed = Vector2( 250, 1000 )
 position = Vector2( 1, -32 )
 frames = SubResource( 10 )
 animation = "andando"
-frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true

@@ -105,7 +105,7 @@ func take_damage():
 func die():
 	anim_state_machine.travel("die")
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
-	$PlayerFeet.set_deferred("disabled", true)
+	emit_signal("on_die")
 	
 func heal(amount: int):
 	if hp == max_hp:

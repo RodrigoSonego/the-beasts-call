@@ -69,4 +69,28 @@ hp = 3
 
 [node name="DemoLevel" parent="." instance=ExtResource( 3 )]
 
+[node name="GameOverCanvas" type="CanvasLayer" parent="."]
+layer = -15
+
+[node name="ColorRect" type="ColorRect" parent="GameOverCanvas"]
+margin_right = 1038.0
+margin_bottom = 612.0
+color = Color( 0, 0, 0, 0.541176 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GameOverCanvas"]
+margin_left = 367.0
+margin_top = 267.0
+margin_right = 653.0
+margin_bottom = 336.0
+text = "							Você Morreu
+							
+				Aperte R para tentar novamente	
+						"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="animation_finished" from="FadeOverlayLayer/AnimationPlayer" to="." method="_on_Fade_animation_finished"]
