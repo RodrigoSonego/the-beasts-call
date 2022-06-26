@@ -36,10 +36,12 @@ tracks/0/keys = {
 }
 
 [node name="GameManager" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 levelsFolderPath = "res://scenes/levels/"
 
 [node name="FadeOverlayLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="FadeOverlayLayer"]
@@ -65,12 +67,15 @@ anims/fade_out = SubResource( 2 )
 [node name="GameUI" parent="." instance=ExtResource( 4 )]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
 position = Vector2( 109, 354 )
 hp = 3
 
 [node name="DemoLevel" parent="." instance=ExtResource( 3 )]
+pause_mode = 1
 
 [node name="GameOverCanvas" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = -15
 
 [node name="ColorRect" type="ColorRect" parent="GameOverCanvas"]

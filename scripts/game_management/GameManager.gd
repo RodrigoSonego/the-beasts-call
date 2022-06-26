@@ -40,6 +40,7 @@ func handle_level_changed(current_level_index: int):
 	
 	game_ui.update_key_count(0)
 	fadeAnimation.play("fade_in")
+	get_tree().paused = true
 
 func _on_player_heal():
 	game_ui.on_player_heal()
@@ -69,6 +70,9 @@ func _on_Fade_animation_finished(anim_name):
 		
 		next_level = null
 		current_level.connect("level_changed", self, "handle_level_changed")
-		fadeAnimation.play("fade_out")
 		player.position = current_level.spawn_point.position;
+		
+		get_tree().paused = false
+		
+		fadeAnimation.play("fade_out")
 		
