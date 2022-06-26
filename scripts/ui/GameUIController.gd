@@ -16,6 +16,9 @@ func on_player_damage():
 func on_player_heal():
 	hearts_controller.increase_heart()
 
+func on_player_fully_heal():
+	hearts_controller.fully_increase_hearts()
+
 func update_gear_count(count: int):
 	gear_counter.update_count(count)
 

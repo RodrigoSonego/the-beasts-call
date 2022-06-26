@@ -24,3 +24,7 @@ func increase_heart():
 	
 	hearts[lastActiveHeartIndex+1].texture = fullHeartSprite
 	lastActiveHeartIndex += 1
+
+func fully_increase_hearts():
+	for heart in hearts:
+		heart.texture = fullHeartSprite
