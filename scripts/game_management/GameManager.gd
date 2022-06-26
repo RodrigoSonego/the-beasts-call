@@ -2,7 +2,7 @@ extends Node
 class_name GameManager
 
 export (String) var levelsFolderPath
-var next_level: Level
+var next_level = null
 
 onready var current_level := $DemoLevel
 onready var player := $Player
@@ -36,10 +36,7 @@ func _physics_process(delta):
 
 func handle_level_changed(current_level_index: int):
 	var next_level_index := current_level_index + 1;
-	
-	next_level = load(levelsFolderPath + "Level" + str(next_level_index) + ".tscn").instance()
-	next_level.z_index = -10
-	add_child(next_level)
+	next_level = load(levelsFolderPath + "Level" + str(next_level_index) + ".tscn")
 	
 	game_ui.update_key_count(0)
 	fadeAnimation.play("fade_in")
@@ -64,8 +61,12 @@ func _on_collect_key():
 func _on_Fade_animation_finished(anim_name):
 	if anim_name == "fade_in":
 		current_level.queue_free()
-		current_level = next_level
+		
+		var next_level_instance = next_level.instance()
+		add_child(next_level_instance)
+		current_level = next_level_instance
 		current_level.z_index = 1
+		
 		next_level = null
 		current_level.connect("level_changed", self, "handle_level_changed")
 		fadeAnimation.play("fade_out")
