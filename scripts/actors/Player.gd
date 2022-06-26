@@ -122,6 +122,7 @@ func heal(amount: int):
 
 func grab_key():
 	has_key = true
+	emit_signal("on_collect_key")
 
 func consume_key():
 	has_key = false
