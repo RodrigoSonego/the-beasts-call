@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/tilesets/DemoLevel.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/tilesets/Estagio3.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/actors/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Items/Potion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/game_management/Level.gd" type="Script" id=5]
@@ -12,14 +13,15 @@ script = ExtResource( 5 )
 level_index = -1
 
 [node name="Plataformas" type="TileMap" parent="."]
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.7, 0.7 )
 z_index = -1
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 500, 500 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 240, 160 )
+show_collision = true
 collision_layer = 8
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( 65547, 8, 0, 196607, 8, 0, 131083, 8, 0, 262143, 8, 0, 196615, 6, 0, 196617, 2, 0, 196619, 8, 0, 327679, 8, 0, 262150, 1, 0, 262155, 8, 0, 393215, 8, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, 327685, 8, 0, 327686, 8, 0, 327687, 8, 0, 327688, 8, 0, 327689, 8, 0, 327690, 8, 0, 327691, 8, 0 )
+tile_data = PoolIntArray( 65547, 8, 0, 196607, 8, 0, 131083, 8, 0, 262143, 8, 0, 196609, 2, 0, 196611, 2, 0, 196612, 1, 0, 196615, 6, 0, 196617, 2, 0, 196619, 8, 0, 327679, 8, 0, 262150, 1, 0, 262155, 8, 0, 393215, 8, 0, 327680, 5, 0, 327681, 5, 0, 327682, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 5, 0, 327686, 5, 0, 327687, 5, 0, 327688, 8, 0, 327689, 8, 0, 327690, 8, 0, 327691, 8, 0 )
 
 [node name="enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 923, 445 )
@@ -37,5 +39,8 @@ position = Vector2( 75, 269 )
 
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( 63, 430 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 110, 456 )
 
 [connection signal="on_door_interaction" from="Door" to="." method="_on_change_level"]

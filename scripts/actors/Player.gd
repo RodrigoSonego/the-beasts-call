@@ -130,6 +130,9 @@ func consume_key():
 func get_has_key():
 	return has_key
 
+func grab_gear():
+	emit_signal("on_collect_gear")
+
 func _on_AttackHitbox_area_entered(area):
 	if(area.is_in_group("enemy")):
 		var enemy = area.get_node('..')
