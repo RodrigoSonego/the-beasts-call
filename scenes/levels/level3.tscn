@@ -1,0 +1,319 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://sprites/tilesets/Estagio3.tres" type="TileSet" id=1]
+[ext_resource path="res://sprites/tiles/3º estágio/bg m.png" type="Texture" id=2]
+[ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Items/Potion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/actors/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Items/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/tiles/3º estágio/engrenagem 1 m.png" type="Texture" id=7]
+[ext_resource path="res://sprites/tiles/3º estágio/engrenagem 2 m.png" type="Texture" id=8]
+[ext_resource path="res://sprites/tiles/3º estágio/engrenagem 3 m.png" type="Texture" id=9]
+[ext_resource path="res://sprites/tiles/3º estágio/estrutura 1 m.png" type="Texture" id=10]
+[ext_resource path="res://sprites/tiles/3º estágio/estrutura 2 m.png" type="Texture" id=11]
+[ext_resource path="res://sprites/tiles/3º estágio/lampada m.png" type="Texture" id=12]
+[ext_resource path="res://sprites/tiles/3º estágio/mesa m.png" type="Texture" id=13]
+[ext_resource path="res://scenes/Items/Gear.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Items/Key.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scripts/game_management/Level.gd" type="Script" id=16]
+
+[sub_resource type="TileSet" id=1]
+0/name = "bg m.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 500, 500 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="level3" type="Node2D"]
+script = ExtResource( 16 )
+level_index = 3
+
+[node name="Key" parent="." instance=ExtResource( 15 )]
+position = Vector2( 4951, 503 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Gear" parent="." instance=ExtResource( 14 )]
+position = Vector2( 3248, 500 )
+
+[node name="Plataformas" type="TileMap" parent="."]
+position = Vector2( 1, 0 )
+scale = Vector2( 0.7, 0.7 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 240, 160 )
+collision_layer = 8
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -589824, 5, 0, -589791, 5, 0, -524288, 5, 0, -524274, 5, 0, -524255, 5, 0, -458752, 5, 0, -458738, 5, 0, -458719, 5, 0, -393216, 5, 0, -393202, 5, 0, -393201, 3, 0, -393183, 5, 0, -327680, 5, 0, -327679, 3, 0, -327678, 3, 0, -327677, 536870915, 0, -327676, 536870915, 0, -327675, 536870915, 0, -327674, 536870915, 0, -327673, 536870915, 0, -327672, 536870915, 0, -327671, 536870915, 0, -327670, 536870915, 0, -327669, 5, 0, -327666, 5, 0, -327663, 3, 0, -327662, 5, 0, -327661, 3, 0, -327660, 3, 0, -327659, 3, 0, -327658, 3, 0, -327657, 3, 0, -327656, 3, 0, -327655, 6, 0, -327650, 8, 0, -327647, 5, 0, -262144, 5, 0, -262133, 5, 0, -262132, 8, 0, -262130, 5, 0, -262129, 3, 0, -262126, 5, 0, -262120, 6, 0, -262119, 0, 0, -262118, 3, 0, -262117, 1, 0, -262114, 8, 0, -262111, 5, 0, -196608, 5, 0, -196605, 536870915, 0, -196604, 536870915, 0, -196603, 536870915, 0, -196602, 536870915, 0, -196601, 5, 0, -196597, 5, 0, -196596, 8, 0, -196594, 5, 0, -196591, 3, 0, -196590, 5, 0, -196580, 3, 0, -196578, 8, 0, -196575, 5, 0, -131072, 5, 0, -131071, 6, 0, -131065, 5, 0, -131064, 3, 0, -131063, 3, 0, -131062, 6, 0, -131061, 5, 0, -131060, 8, 0, -131059, 6, 0, -131058, 5, 0, -131057, 3, 0, -131056, 6, 0, -131055, 6, 0, -131054, 5, 0, -131051, 3, 0, -131050, 3, 0, -131049, 3, 0, -131048, 3, 0, -131047, 3, 0, -131046, 3, 0, -131045, 3, 0, -131044, 3, 0, -131043, 3, 0, -131042, 3, 0, -131041, 3, 0, -131040, 3, 0, -131039, 5, 0, -65536, 5, 0, -65534, 6, 0, -65529, 5, 0, -65527, 6, 0, -65522, 5, 0, -65519, 3, 0, -65518, 5, 0, -65506, 8, 0, -65503, 5, 0, 0, 5, 0, 2, 536870915, 0, 3, 536870915, 0, 4, 536870915, 0, 5, 536870915, 0, 6, 536870915, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 3, 0, 18, 5, 0, 19, 3, 0, 22, 5, 0, 27, 8, 0, 30, 8, 0, 33, 5, 0, 65536, 5, 0, 65542, 6, 0, 65543, 536870917, 0, 65550, 5, 0, 65553, 3, 0, 65554, 5, 0, 65557, 3, 0, 65558, 5, 0, 65564, 5, 0, 65565, 3, 0, 65566, 3, 0, 65567, 3, 0, 65569, 5, 0, 131072, 5, 0, 131073, 536870915, 0, 131074, 536870915, 0, 131075, 536870915, 0, 131076, 536870915, 0, 131077, 536870915, 0, 131079, 536870917, 0, 131083, 3, 0, 131084, 3, 0, 131085, 3, 0, 131086, 5, 0, 131087, 3, 0, 131090, 5, 0, 131091, 3, 0, 131094, 5, 0, 131095, 3, 0, 131099, 3, 0, 131100, 5, 0, 131104, 3, 0, 131105, 5, 0, 196608, 5, 0, 196609, 8, 0, 196610, 8, 0, 196611, 8, 0, 196612, 8, 0, 196613, 8, 0, 196614, 8, 0, 196615, 536870917, 0, 196617, 3, 0, 196618, 3, 0, 196620, 8, 0, 196621, 8, 0, 196622, 5, 0, 196623, 8, 0, 196624, 8, 0, 196625, 3, 0, 196626, 5, 0, 196627, 8, 0, 196628, 8, 0, 196629, 3, 0, 196630, 5, 0, 196632, 0, 0, 196634, 1, 0, 196636, 5, 0, 196638, 8, 0, 196639, 3, 0, 196641, 5, 0, 262144, 5, 0, 262162, 5, 0, 262166, 5, 0, 262172, 5, 0, 262177, 5, 0, 327680, 5, 0, 327681, 5, 0, 327682, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 5, 0, 327686, 5, 0, 327687, 5, 0, 327688, 5, 0, 327689, 5, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327695, 5, 0, 327696, 5, 0, 327697, 5, 0, 327698, 5, 0, 327699, 5, 0, 327700, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 327705, 5, 0, 327706, 5, 0, 327707, 5, 0, 327708, 5, 0, 327709, 5, 0, 327710, 5, 0, 327711, 5, 0, 327712, 5, 0, 327713, 5, 0 )
+
+[node name="Background" type="TileMap" parent="."]
+z_index = -5
+tile_set = SubResource( 1 )
+cell_size = Vector2( 500, 500 )
+format = 1
+tile_data = PoolIntArray( -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -196604, 0, 0, -196603, 0, 0, -196602, 0, 0, -196601, 0, 0, -196600, 0, 0, -196599, 0, 0, -196598, 0, 0, -196597, 0, 0, -196596, 0, 0, -196595, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 439, -522 )
+hp = 3
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2299, 238 )
+z_index = -1
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 213, -551 )
+
+[node name="enemy3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1343, -543 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1828, -56.0001 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 794, -315 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Potion" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1038, 21 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 792, 19.9999 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 894, 235 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1540, 511 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Potion2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2575, -633 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2628, -661 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="engrenagem" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 1619, -310 )
+z_index = -1
+texture = ExtResource( 7 )
+
+[node name="engrenagem2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 751, -100 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="engrenagem3" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 517, -103 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="estrutura2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 318, -115 )
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="lampada" type="Sprite" parent="."]
+position = Vector2( 796, -595 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="mesa" type="Sprite" parent="."]
+position = Vector2( 584, -535 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 13 )
+
+[node name="enemy10" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3976, -550 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy11" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5045, -228 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy12" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3766, -208 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy13" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3417, 505 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy14" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4604, 231 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Potion3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 4587, 516 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="enemy15" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4298, 505 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy16" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5071, 513 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy17" parent="." instance=ExtResource( 5 )]
+position = Vector2( 5071, 513 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy18" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4380, -215 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="enemy19" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2061, 223 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="estrutura3" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 1654, 308 )
+rotation = -1.5708
+z_index = -1
+texture = ExtResource( 11 )
+
+[node name="enemy20" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2962, -89.0001 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="lampada2" type="Sprite" parent="."]
+position = Vector2( 1245, -605 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="lampada3" type="Sprite" parent="."]
+position = Vector2( 1766, -608 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="lampada4" type="Sprite" parent="."]
+position = Vector2( 2300, 153 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="mesa2" type="Sprite" parent="."]
+position = Vector2( 2167, 247 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 13 )
+
+[node name="engrenagem4" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 541, 453 )
+scale = Vector2( 0.6, 0.6 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="estrutura4" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 4265, 144 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="estrutura5" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 3410, 73 )
+z_index = -1
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="engrenagem5" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 3561, -651 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="engrenagem6" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 3367, -748 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="engrenagem7" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 3783, -584 )
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="estrutura6" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 5334, -767 )
+z_index = -1
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="estrutura7" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 5045, -628 )
+z_index = -1
+texture = ExtResource( 10 )
+
+[node name="engrenagem8" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 5424, -300 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="engrenagem9" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 5380, -439 )
+rotation = -5.68279
+z_index = -1
+texture = ExtResource( 8 )
+
+[node name="lampada5" type="Sprite" parent="."]
+position = Vector2( 2184, -290 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="lampada6" type="Sprite" parent="."]
+position = Vector2( 2780, -68.0001 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="engrenagem10" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627451 )
+position = Vector2( 4468, -606 )
+z_index = -1
+texture = ExtResource( 9 )
+
+[node name="mesa3" type="Sprite" parent="."]
+position = Vector2( 5386, 515 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 13 )
+
+[node name="lampada7" type="Sprite" parent="."]
+position = Vector2( 4947, 396 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -1
+texture = ExtResource( 12 )
