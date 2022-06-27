@@ -19,7 +19,6 @@ func _ready():
 	
 
 func _physics_process(_delta):
-	$HpLabel.text = "HP: " + str(hp)
 	
 	current_state = anim_state_machine.get_current_node()
 	
