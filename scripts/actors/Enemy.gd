@@ -3,22 +3,24 @@ class_name Enemy
 
 var side = -1
 
+var raycast: RayCast2D
+var raycast_pivot: Position2D
+
 func _ready():
-	pass
+	$Sprite/AnimationPlayer.play("default")
+	raycast = $RaycastPivot/RayCast2D
+	raycast_pivot = $RaycastPivot
+	
 	set_physics_process(false)
 	_velocity.x = -speed.x
-	$AnimatedSprite.scale.x = side * 1
-	
 	hp = max_hp
-	#$RaydCast2D.position.x = $CollisionShape2D.shape.get_extents().x * side
 
 func _physics_process(delta):
 	_velocity.y += gravity * delta
-	if is_on_wall():
+	if is_on_wall() or raycast.is_colliding() == false:
 		_velocity.x *= -1.0
 		side *= -1
-		$AnimatedSprite.scale.x = side * 1
-		#$RayCast2D.position.x = $CollisionShape2D.shape.get_extents().x * side
+		raycast_pivot.scale.x *= -1
 	
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 
