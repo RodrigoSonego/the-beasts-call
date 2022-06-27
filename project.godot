@@ -78,6 +78,10 @@ config/name="the-beasts-call"
 run/main_scene="res://scenes/levels/GameManager.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [global]
 
 layer=false
