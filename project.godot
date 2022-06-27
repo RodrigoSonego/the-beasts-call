@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="the-beasts-call"
-run/main_scene="res://scenes/levels/GameManager.tscn"
+run/main_scene="res://scenes/menu/menu.tscn"
 config/icon="res://icon.png"
 
 [display]
