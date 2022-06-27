@@ -6,7 +6,7 @@ var current_state:= "idle" # TODO: se pa achar uma maneira melhor do que só str
 
 export var attack_knockback := 500.0
 
-var has_key := false
+export var has_key := false
 
 signal on_damage_taken()
 signal on_heal()

@@ -4,6 +4,7 @@ class_name GameManager
 export (String) var levelsFolderPath
 var next_level = null
 
+var final_level = preload("res://scenes/levels/CongratsLevel.tscn")
 var current_level_resource = preload("res://scenes/levels/Level1.tscn")
 onready var current_level_instance := $Level1
 onready var player := $Player
@@ -51,7 +52,12 @@ func reset_level():
 
 func handle_level_changed(current_level_index: int):
 	var next_level_index := current_level_index + 1;
-	next_level = load(levelsFolderPath + "Level" + str(next_level_index) + ".tscn")
+	if current_level_index == 3:
+		next_level = final_level
+	else:
+		next_level = load(levelsFolderPath + "Level" + str(next_level_index) + ".tscn")
+	
+	gear_count += current_level_instance.gears_collected
 	
 	game_ui.update_key_count(0)
 	fadeAnimation.play("fade_in")
@@ -66,6 +72,10 @@ func load_level(level: Resource):
 	add_child(current_level_instance)
 	
 	current_level_instance.connect("level_changed", self, "handle_level_changed")
+	
+	if current_level_instance is CongratsLevel:
+		current_level_instance.set_gear_count(gear_count)
+		game_ui.queue_free()
 
 func _on_player_heal():
 	game_ui.on_player_heal()
@@ -91,8 +101,8 @@ func _on_Fade_animation_finished(anim_name):
 		next_level = null
 		
 		player.position = current_level_instance.spawn_point.position
+		move_child(player, get_child_count()-1)
 		
 		get_tree().paused = false
-		
 		fadeAnimation.play("fade_out")
 		

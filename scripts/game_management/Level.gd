@@ -6,7 +6,7 @@ signal level_changed(level_index)
 export var level_index := 0
 onready var spawn_point := $SpawnPoint
 
-var gears_collected:= 0
+export var gears_collected:= 0
 var collected_key:= false
 
 func _ready():
