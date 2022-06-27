@@ -4,8 +4,8 @@ class_name GameManager
 export (String) var levelsFolderPath
 var next_level = null
 
-var current_level_resource = preload("res://scenes/levels/Level-1.tscn")
-onready var current_level_instance := $DemoLevel
+var current_level_resource = preload("res://scenes/levels/Level1.tscn")
+onready var current_level_instance := $Level1
 onready var player := $Player
 onready var fadeAnimation := $FadeOverlayLayer/AnimationPlayer
 
