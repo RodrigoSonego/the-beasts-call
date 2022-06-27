@@ -43,7 +43,7 @@ func get_input_direction() -> Vector2:
 func calculate_move_velocity(linear_velocity: Vector2, direction: Vector2, speed: Vector2, 
 															is_jump_released: bool) -> Vector2:
 	
-	if (current_state == "attack" and is_on_floor()) or current_state == "die":
+	if current_state == "die":
 		return Vector2.ZERO
 	
 	var move_velocity:= linear_velocity
