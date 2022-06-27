@@ -16,6 +16,9 @@ func _ready():
 		
 		if node is Key:
 			node.connect("on_collect", self, "_on_grab_key")
+		
+		if node is Door:
+			node.connect("on_door_interaction", self, "_on_change_level")
 
 func _on_change_level():
 	emit_signal("level_changed", level_index)

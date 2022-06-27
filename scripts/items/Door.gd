@@ -1,4 +1,5 @@
 extends Area2D
+class_name Door
 
 signal on_door_interaction()
 export var is_locked:= false
