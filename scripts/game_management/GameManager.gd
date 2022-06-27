@@ -39,9 +39,7 @@ func reset_level():
 	game_ui.update_gear_count(gear_count)
 	game_ui.update_key_count(0)
 	
-	current_level_instance.queue_free()
-	current_level_instance = current_level_resource.instance()
-	add_child(current_level_instance)
+	load_level(current_level_resource)
 	$GameOverCanvas.layer = -15
 	
 	player.respawn()
@@ -58,6 +56,16 @@ func handle_level_changed(current_level_index: int):
 	game_ui.update_key_count(0)
 	fadeAnimation.play("fade_in")
 	get_tree().paused = true
+
+func load_level(level: Resource):
+	current_level_resource = level
+	
+	current_level_instance.queue_free()
+	
+	current_level_instance = current_level_resource.instance()
+	add_child(current_level_instance)
+	
+	current_level_instance.connect("level_changed", self, "handle_level_changed")
 
 func _on_player_heal():
 	game_ui.on_player_heal()
@@ -78,16 +86,10 @@ func _on_collect_key():
 
 func _on_Fade_animation_finished(anim_name):
 	if anim_name == "fade_in":
-		current_level_instance.queue_free()
-		
-		var next_level_instance = next_level.instance()
-		add_child(next_level_instance)
-		current_level_instance = next_level_instance
+		load_level(next_level)
 		current_level_instance.z_index = 1
-		
-		current_level_resource = next_level
 		next_level = null
-		current_level_instance.connect("level_changed", self, "handle_level_changed")
+		
 		player.position = current_level_instance.spawn_point.position
 		
 		get_tree().paused = false
