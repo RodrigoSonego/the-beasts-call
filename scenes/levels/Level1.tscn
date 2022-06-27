@@ -32,6 +32,7 @@
 0/z_index = 0
 
 [node name="Level1" type="Node2D"]
+z_index = -1
 script = ExtResource( 2 )
 level_index = 1
 

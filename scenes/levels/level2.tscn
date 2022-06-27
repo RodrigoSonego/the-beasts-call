@@ -41,6 +41,8 @@ position = Vector2( 1, 0 )
 scale = Vector2( 0.7, 0.7 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 240, 160 )
+collision_layer = 8
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -327680, 8, 0, -327655, 6, 0, -327650, 8, 0, -262144, 8, 0, -262132, 8, 0, -262120, 6, 0, -262114, 8, 0, -196608, 8, 0, -196596, 8, 0, -196585, 6, 0, -196581, 6, 0, -196580, 6, 0, -196579, 6, 0, -196578, 8, 0, -131072, 8, 0, -131071, 6, 0, -131062, 6, 0, -131061, 6, 0, -131060, 8, 0, -131059, 6, 0, -131058, 6, 0, -131057, 6, 0, -131056, 6, 0, -131055, 6, 0, -131050, 6, 0, -131042, 8, 0, -65536, 8, 0, -65535, 2, 0, -65534, 6, 0, -65527, 6, 0, -65517, 0, 0, -65516, 4, 0, -65506, 8, 0, 0, 8, 0, 3, 6, 0, 7, 2, 0, 10, 6, 0, 17, 0, 0, 18, 4, 0, 27, 8, 0, 30, 8, 0, 65536, 8, 0, 65537, 3, 0, 65538, 2, 0, 65539, 2, 0, 65540, 0, 0, 65541, 6, 0, 65542, 6, 0, 65543, 6, 0, 65544, 6, 0, 65545, 4, 0, 65550, 0, 0, 65551, 6, 0, 65552, 4, 0, 65562, 6, 0, 65563, 8, 0, 65564, 6, 0, 65566, 8, 0, 131072, 8, 0, 131099, 8, 0, 131102, 8, 0, 196608, 8, 0, 196609, 8, 0, 196610, 8, 0, 196611, 8, 0, 196612, 8, 0, 196613, 8, 0, 196614, 8, 0, 196615, 8, 0, 196616, 8, 0, 196617, 8, 0, 196618, 8, 0, 196619, 8, 0, 196620, 8, 0, 196621, 8, 0, 196622, 8, 0, 196623, 8, 0, 196624, 8, 0, 196625, 8, 0, 196626, 8, 0, 196627, 8, 0, 196628, 8, 0, 196629, 8, 0, 196630, 8, 0, 196631, 8, 0, 196632, 8, 0, 196633, 8, 0, 196634, 8, 0, 196635, 8, 0, 196636, 8, 0, 196637, 8, 0, 196638, 8, 0 )
 
@@ -87,7 +89,7 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="Door" parent="." instance=ExtResource( 9 )]
 position = Vector2( 4967, -315 )
-z_index = -1
+z_index = -2
 is_locked = true
 
 [node name="engrenagem" type="Sprite" parent="."]
@@ -123,7 +125,7 @@ texture = ExtResource( 11 )
 [node name="lampada" type="Sprite" parent="."]
 position = Vector2( 1148, 70 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="mesa" type="Sprite" parent="."]
@@ -135,43 +137,43 @@ texture = ExtResource( 16 )
 [node name="lampada2" type="Sprite" parent="."]
 position = Vector2( 2111, 59 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="lampada3" type="Sprite" parent="."]
 position = Vector2( 2630, 57 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="lampada4" type="Sprite" parent="."]
 position = Vector2( 3025, -15 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="lampada5" type="Sprite" parent="."]
 position = Vector2( 3404, -162 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="lampada6" type="Sprite" parent="."]
 position = Vector2( 3940, -382 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="lampada7" type="Sprite" parent="."]
 position = Vector2( 4291, -567 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="lampada8" type="Sprite" parent="."]
 position = Vector2( 4963, -403 )
 scale = Vector2( 0.2, 0.2 )
-z_index = -1
+z_index = -2
 texture = ExtResource( 12 )
 
 [node name="mesa2" type="Sprite" parent="."]
