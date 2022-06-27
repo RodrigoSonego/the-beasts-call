@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/tilesets/Estagio2.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/actors/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/actors/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Items/Potion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/tiles/2º estágio/bg i.png" type="Texture" id=5]
 [ext_resource path="res://scenes/Items/Gear.tscn" type="PackedScene" id=6]
@@ -36,9 +35,6 @@
 [node name="level2" type="Node2D"]
 script = ExtResource( 7 )
 level_index = 2
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 256, 308 )
 
 [node name="Plataformas" type="TileMap" parent="."]
 position = Vector2( 1, 0 )
@@ -92,6 +88,7 @@ scale = Vector2( 0.5, 0.5 )
 [node name="Door" parent="." instance=ExtResource( 9 )]
 position = Vector2( 4967, -315 )
 z_index = -1
+is_locked = true
 
 [node name="engrenagem" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.627451 )
