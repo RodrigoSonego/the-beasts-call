@@ -23,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=63]
 resource_name = "attack"
-length = 0.6
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -31,10 +31,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("AttackHitbox/CollisionShape2D:disabled")
@@ -43,10 +43,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=64]
@@ -101,7 +101,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=67]
 resource_name = "jump_attack"
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
@@ -121,7 +121,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -212,7 +212,6 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 switch_mode = 2
@@ -283,7 +282,7 @@ states/walk/position = Vector2( 641.253, 86 )
 transitions = [ "idle", "attack", SubResource( 13 ), "attack", "idle", SubResource( 14 ), "idle", "walk", SubResource( 15 ), "walk", "idle", SubResource( 16 ), "jump", "walk", SubResource( 17 ), "jump", "idle", SubResource( 18 ), "idle", "jump", SubResource( 19 ), "walk", "jump", SubResource( 20 ), "walk", "attack", SubResource( 21 ), "attack", "walk", SubResource( 22 ), "attack", "jump", SubResource( 26 ), "jump_attack", "jump", SubResource( 29 ), "jump", "jump_attack", SubResource( 30 ), "jump_attack", "idle", SubResource( 31 ), "jump_attack", "walk", SubResource( 32 ), "idle", "take_damage", SubResource( 38 ), "take_damage", "idle", SubResource( 39 ), "attack", "take_damage", SubResource( 49 ), "take_damage", "attack", SubResource( 50 ), "walk", "take_damage", SubResource( 51 ), "take_damage", "walk", SubResource( 52 ), "jump", "take_damage", SubResource( 53 ), "take_damage", "jump", SubResource( 54 ), "jump_attack", "take_damage", SubResource( 55 ), "take_damage", "jump_attack", SubResource( 56 ), "idle", "die", SubResource( 57 ), "attack", "die", SubResource( 58 ), "walk", "die", SubResource( 59 ), "jump_attack", "die", SubResource( 60 ), "jump", "die", SubResource( 61 ) ]
 start_node = "idle"
 end_node = "die"
-graph_offset = Vector2( -448.164, 384.586 )
+graph_offset = Vector2( -448.164, 13.4105 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=24]
 
