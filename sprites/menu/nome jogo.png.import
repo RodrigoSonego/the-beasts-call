@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/botao_jogar.png-fc15d6487e899088cbf6f33c6a96f4e6.stex"
+path="res://.import/nome jogo.png-60145c0b6321746aaa19a19203a04b63.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menu/botao_jogar.png"
-dest_files=[ "res://.import/botao_jogar.png-fc15d6487e899088cbf6f33c6a96f4e6.stex" ]
+source_file="res://sprites/menu/nome jogo.png"
+dest_files=[ "res://.import/nome jogo.png-60145c0b6321746aaa19a19203a04b63.stex" ]
 
 [params]
 
