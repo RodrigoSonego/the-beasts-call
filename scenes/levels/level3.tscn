@@ -67,7 +67,7 @@ z_index = -1
 is_locked = true
 
 [node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( 1692, 334 )
+position = Vector2( 239, -578 )
 
 [node name="enemy3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1343, -543 )

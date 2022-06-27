@@ -101,6 +101,7 @@ func _on_Fade_animation_finished(anim_name):
 		next_level = null
 		
 		player.position = current_level_instance.spawn_point.position
+		player.has_key = false
 		move_child(player, get_child_count()-1)
 		
 		get_tree().paused = false
